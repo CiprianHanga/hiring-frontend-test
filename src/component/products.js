@@ -16,6 +16,8 @@ export default () => (
       </Heading>
     </div>
 
-    {map((product) => <Product {...product} key={product.id}/>, products)}
+    <div className={styles.productListings}>
+      {map((product) => <Product {...product} key={product.id}/>, products)}
+    </div>
   </div>
 );

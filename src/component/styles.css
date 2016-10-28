@@ -211,20 +211,42 @@
 
 
 /* <Product> */
+.productListings { }
+
+@media (max-width: 767px) {
+  .productListings {
+    text-align: center;
+  }
+}
+
 .product {
+  position: relative;
   display: inline-block;
   text-align: center;
-  border: 1px solid #c0c0c0;
-  padding: 8px;
   margin-right: 25px;
   cursor: pointer;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
 .productImage {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 150px;
   display: block;
-  margin-bottom: 7px;
+  vertical-align: bottom;
   object-fit: cover;
   object-position: center center;
+}
+
+.productTitle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 5px 0;
 }

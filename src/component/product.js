@@ -6,7 +6,7 @@ import styles from './styles.css';
 const Product = ({add, id, title, image}) => (
   <a href="#" className={styles.product} onClick={() => add(id)}>
     <img src={image} className={styles.productImage} alt={title} />
-    {title}
+    <span className={styles.productTitle}>{title}</span>
   </a>
 );
 
