@@ -11,7 +11,7 @@ const formatMoney = (value) => (
 );
 
 const Item = ({setQuantity, removeItem, reduceOrRemoveItem, id, quantity}) => {
-  const {title, price} = products[id];
+  const {title, price, image} = products[id];
 
   const increase = () => setQuantity({id, quantity: quantity + 1});
   const decrease = () => reduceOrRemoveItem(id);
@@ -19,30 +19,33 @@ const Item = ({setQuantity, removeItem, reduceOrRemoveItem, id, quantity}) => {
 
   return (
     <tr>
-      <td>
-        {title}
+      <td className={styles.cartItemImageContainer}>
+        <img src={image} className={styles.cartItemImage} alt={title} />
+
         <a href='#' onClick={remove}>
-          <Svg named='trash' className={styles.cartTrashIcon} />
+          <Svg named='trash' className={styles.cartItemTrashIcon} />
         </a>
       </td>
-
-      <td>{formatMoney(price)}</td>
 
       <td>
-        <span className={styles.cartQuantityLabel}>
-          {quantity}
-        </span>
+        <span className={styles.cartItemTitle}>{title}</span>
 
-        <a href="#" onClick={increase}>
-          <Svg named='plus' className={styles.cartPlusIcon} />
-        </a>
+        <p className={styles.cartItemMeta}>
+          {quantity} at {formatMoney(price)}
 
-        <a href="#" onClick={decrease}>
-          <Svg named='minus' className={styles.cartMinusIcon} />
-        </a>
+          <a href="#" onClick={increase}>
+            <Svg named='plus' className={styles.cartItemPlusIcon} />
+          </a>
+
+          <a href="#" onClick={decrease}>
+            <Svg named='minus' className={styles.cartItemMinusIcon} />
+          </a>
+        </p>
       </td>
 
-      <td>{formatMoney(price * quantity)}</td>
+      <td className={styles.cartItemTotal}>
+        {formatMoney(price * quantity)}
+      </td>
     </tr>
   );
 };

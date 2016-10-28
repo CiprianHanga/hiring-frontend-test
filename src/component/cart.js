@@ -42,23 +42,15 @@ const Cart = ({clear, total, items}) => {
       </div>
 
       <table className={styles.cartTable}>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-
         <tbody>
           {map((item) => <Item {...item} key={item.id} />, items)}
-          <tr>
-            <td colSpan={3}/>
-            <td className={styles.cartTotalLabel}>{formatMoney(total)}</td>
-          </tr>
         </tbody>
       </table>
+
+      <div className={styles.totalContainer}>
+        <span className={styles.totalLabel}>Total</span>
+        <span className={styles.totalAmount}>{formatMoney(total)}</span>
+      </div>
     </div>
   );
 };

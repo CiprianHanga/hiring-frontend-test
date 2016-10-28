@@ -39,7 +39,7 @@
   .cartContainer {
     display: table-cell;
     width: 42%;
-    padding: 50px 20px;
+    padding: 50px 30px;
     vertical-align: top;
     box-sizing: border-box;
   }
@@ -77,58 +77,110 @@
 .cartTable {
   width: 100%;
   text-align: left;
-  table-layout: fixed;
 }
 
-.cartTable thead {
-  border-bottom: 1px solid #c0c0c0;
+.cartTable td {
+  vertical-align: middle;
+  padding-bottom: 20px;
 }
 
-.cartTable td,
-.cartTable th {
-  padding: 4px 5px;
+.cartItemImageContainer {
+  position: relative;
+  width: 70px;
 }
 
-.cartTable th {
+.cartItemImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.cartItemTrashIcon {
+  display: inline-block;
+  position: absolute;
+  top: -8px;
+  left: -9px;
+  padding: 5px 6px;
+  width: 11px;
+  height: 12px;
+  fill: #e07575;
+  background: #ffffff;
+  box-sizing: content-box;
+  border-radius: 50%;
+  box-shadow: 0 0 2px #949494;
+}
+
+.cartItemTitle {
   font-weight: 600;
 }
 
-.cartTrashIcon {
-  display: inline-block;
-  position: relative;
-  top: 1px;
-  width: 14px;
-  height: 15px;
-  margin-left: 7px;
-  fill: currentColor;
+.cartItemMeta {
+  font-size: 14px;
+  opacity: 0.8;
 }
 
-.cartQuantityLabel {
-  margin-right: 10px;
-}
-
-.cartPlusIcon,
-.cartMinusIcon {
+.cartItemPlusIcon,
+.cartItemMinusIcon {
   position: relative;
   top: -2px;
   display: inline-block;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   cursor: pointer;
   vertical-align: middle;
+  opacity: 0.8;
 }
 
-.cartPlusIcon {
-  margin-right: 5px;
+.cartItemPlusIcon:hover,
+.cartItemMinusIcon:hover {
+  opacity: 1;
 }
 
-.cartMinusIcon svg {
-  margin-top: 5px;
+.cartItemPlusIcon {
+  margin-left: 10px;
 }
 
-.cartTotalLabel {
-  font-size: 20px;
+.cartItemMinusIcon {
+  margin-left: 5px;
+  margin-top: 7px;
+}
+
+.cartItemTotal {
+  width: 70px;
+  text-align: right;
+  font-size: 18px;
   font-weight: 600;
+}
+
+.totalContainer {
+  padding-top: 15px;
+  border-top: 1px solid #F1F1F1;
+}
+
+.totalContainer:before,
+.totalContainer:after {
+  display: table;
+  content: "";
+}
+
+.totalContainer:after {
+  clear: both;
+}
+
+.totalLabel {
+  opacity: 0.5;
+  float: left;
+  position: relative;
+  top: 2px;
+}
+
+.totalAmount {
+  float: right;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 /* <Products> */
