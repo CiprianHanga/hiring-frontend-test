@@ -12,7 +12,7 @@ export default () => (
     <div className={styles.headingOuter}>
       <Heading>
         <Svg named='cup' className={styles.productsTitleIcon} />
-        Products
+        Available Products
       </Heading>
     </div>
 

@@ -1,12 +1,10 @@
 /* <App> */
-
 .appInner { }
 
 @media (max-width: 767px) {
   .appInner {
     display: table;
     width: 100%;
-    min-height: 100vh;
   }
 }
 
@@ -14,6 +12,7 @@
   .appInner {
     display: table;
     width: 100%;
+    min-height: 100vh;
   }
 }
 
@@ -56,6 +55,23 @@
   height: 19px;
   margin-right: 8px;
   fill: currentColor;
+}
+
+.clearCartButton {
+  position: absolute;
+  top: 11px;
+  right: 0;
+}
+
+.emptyCart {
+  display: block;
+  padding: 9px 10px;
+  background-color: #fdfdfd;
+  text-align: center;
+  font-size: 14px;
+  border: 1px dashed #e5e8ec;
+  color: #a0a0a0;
+  border-radius: 5px;
 }
 
 .cartTable {

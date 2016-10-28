@@ -18,7 +18,7 @@ const Cart = ({clear, total, items}) => {
   const header = (
     <Heading className={styles.cartTitle}>
       <Svg named='cart' className={styles.cartTitleIcon} />
-      Cart
+      Your Cart
     </Heading>
   );
 
@@ -29,7 +29,7 @@ const Cart = ({clear, total, items}) => {
           {header}
         </div>
 
-        Your cart is empty
+        <span className={styles.emptyCart}>Your cart is empty.</span>
       </div>
     );
   }
@@ -38,7 +38,7 @@ const Cart = ({clear, total, items}) => {
     <div className={styles.cartContainer}>
       <div className={styles.headingOuter}>
         {header}
-        <button onClick={clear}>Empty cart</button>
+        <button onClick={clear} className={styles.clearCartButton}>Empty cart</button>
       </div>
 
       <table className={styles.cartTable}>
