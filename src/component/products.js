@@ -1,19 +1,19 @@
 import {createElement} from 'react';
 import styles from './styles.css';
-import Product from './product';
+import map from 'lodash/fp/map';
+
 import * as products from '../data/items';
+import Product from './product';
 import Heading from './heading';
-import ReactSVG from 'react-svg';
+import SVG from './svg';
 
 export default () => (
   <div>
     <Heading>
-      <ReactSVG path={'icon-cup.svg'} className={styles.productsTitleIcon} />
+      <SVG named="cupIcon" className={styles.productsTitleIcon} />
       Products
     </Heading>
 
-    <Product {...products.cake}/>
-    <Product {...products.waffle}/>
-    <Product {...products.chocolate}/>
+    {map((product) => <Product {...product} key={product.id}/>, products)}
   </div>
 );

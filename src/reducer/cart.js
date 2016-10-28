@@ -1,6 +1,7 @@
 import {handleActions} from 'redux-actions';
-import {CLEAR_ITEMS, ADD_ITEM, SET_QUANTITY} from 'action/types';
+import {CLEAR_ITEMS, ADD_ITEM, REMOVE_ITEM, SET_QUANTITY} from 'action/types';
 import map from 'lodash/fp/map';
+import filter from 'lodash/fp/filter';
 
 export default handleActions({
   [CLEAR_ITEMS]: () => ({
@@ -12,6 +13,12 @@ export default handleActions({
       ...state.items,
       {id, quantity: 1},
     ],
+  }),
+  [REMOVE_ITEM]: (state, {payload: id}) => ({
+    ...state,
+    items: filter((item) => (
+      item.id !== id
+    ), state.items),
   }),
   [SET_QUANTITY]: (state, {payload: {id: target, quantity}}) => ({
     ...state,

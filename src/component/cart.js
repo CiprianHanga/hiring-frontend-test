@@ -3,64 +3,60 @@ import map from 'lodash/fp/map';
 import reduce from 'lodash/fp/reduce';
 import {connect} from 'react-redux';
 import styles from './styles.css';
-import ReactSVG from 'react-svg';
 
-import {clear, setQuantity} from '../action/cart';
+import {clear, setQuantity, removeItem, reduceOrRemoveItem} from '../action/cart';
 import * as products from '../data/items';
 import Heading from './heading';
+import Item from './item';
+import SVG from './svg';
 
-const Item = connect(
-  () => ({}),
-  {setQuantity}
-)(({id, quantity, setQuantity}) => {
-  const {title, price} = products[id];
-  const inc = () => setQuantity({id, quantity: quantity + 1});
-  const dec = () => setQuantity({id, quantity: quantity - 1});
-  return (
-    <tr>
-      <td>
-        {title}
-        <ReactSVG path={'icon-trash.svg'} className={styles.cartTrashIcon} />
-      </td>
-      <td>
-        {price}
-      </td>
-      <td>
-        {quantity}
-        <a onClick={inc}>+</a> <a onClick={dec}>-</a>
-      </td>
-      <td>
-        {price * quantity}
-      </td>
-    </tr>
-  );
-});
+let formatMoney = (value) => (
+  <span>${value.toFixed(2)}</span>
+);
 
-const Cart = ({clear, total, items}) => (
-  <div>
+const Cart = ({clear, total, items}) => {
+  const header = (
     <Heading>
-      <ReactSVG path={'icon-cart.svg'} className={styles.cartTitleIcon} />
+      <SVG named="cartIcon" className={styles.cartTitleIcon} />
       Cart
     </Heading>
+  );
 
-    <button onClick={clear}>Clear all items</button>
+  if (items.length === 0) {
+    return (
+      <div>
+        {header}
+        Your cart is empty
+      </div>
+    )
+  };
 
-    <table className={styles.cartTable}>
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        {map((item) => <Item {...item} key={item.id} />, items)}
-        <tr><td colSpan={3}/><td>TOTAL: {total}</td></tr>
-      </tbody>
-    </table>
-  </div>
-);
+  return (
+    <div>
+      {header}
+
+      <button onClick={clear}>Clear all items</button>
+
+      <table className={styles.cartTable}>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {map((item) => <Item {...item} key={item.id} />, items)}
+          <tr>
+            <td colSpan={3}/>
+            <td className={styles.cartTotalLabel}>{formatMoney(total)}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export default connect((state) => {
   return {
