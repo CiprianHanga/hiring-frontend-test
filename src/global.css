@@ -87,13 +87,13 @@
 
   /* This is here because it is not a component */
   #app {
-    max-width: 870px;
+    max-width: 990px;
     margin-left: auto;
     margin-right: auto;
     background: #fff;
   }
 
-  @media (max-width: 930px) {
+  @media (max-width: 1050px) {
     #app {
       margin-left: 30px;
       margin-right: 30px;
