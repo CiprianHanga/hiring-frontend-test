@@ -33,11 +33,11 @@ const Item = ({setQuantity, removeItem, reduceOrRemoveItem, id, quantity}) => {
           {quantity}
         </span>
 
-        <a onClick={increase}>
+        <a href="#" onClick={increase}>
           <Svg named='plus' className={styles.cartPlusIcon} />
         </a>
 
-        <a onClick={decrease}>
+        <a href="#" onClick={decrease}>
           <Svg named='minus' className={styles.cartMinusIcon} />
         </a>
       </td>

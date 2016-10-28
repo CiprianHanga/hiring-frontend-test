@@ -97,9 +97,8 @@
 .productImage {
   width: 100px;
   height: 100px;
-  background-position: center center;
-  background-size: 100% auto;
-  background-size: cover;
   display: block;
   margin-bottom: 7px;
+  object-fit: cover;
+  object-position: center center;
 }

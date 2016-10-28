@@ -4,13 +4,10 @@ import {connect} from 'react-redux';
 import styles from './styles.css';
 
 const Product = ({add, id, title, image}) => (
-  <div className={styles.product} onClick={() => add(id)}>
-    <div
-      style={{backgroundImage: `url(${image})`}}
-      className={styles.productImage}
-    />
+  <a href="#" className={styles.product} onClick={() => add(id)}>
+    <img src={image} className={styles.productImage} alt={title} />
     {title}
-  </div>
+  </a>
 );
 
 export default connect(() => ({}), {add})(Product);
