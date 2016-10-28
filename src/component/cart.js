@@ -2,6 +2,8 @@ import {createElement} from 'react';
 import map from 'lodash/fp/map';
 import reduce from 'lodash/fp/reduce';
 import {connect} from 'react-redux';
+import styles from './styles.css';
+import ReactSVG from 'react-svg';
 
 import {clear, setQuantity} from '../action/cart';
 import * as products from '../data/items';
@@ -18,6 +20,7 @@ const Item = connect(
     <tr>
       <td>
         {title}
+        <ReactSVG path={'icon-trash.svg'} className={styles.cartTrashIcon} />
       </td>
       <td>
         {price}
@@ -35,9 +38,14 @@ const Item = connect(
 
 const Cart = ({total, items}) => (
   <div>
-    <Heading>Cart</Heading>
-    <a onClick={clear}>Clear all items</a>
-    <table>
+    <Heading>
+      <ReactSVG path={'icon-cart.svg'} className={styles.cartTitleIcon} />
+      Cart
+    </Heading>
+
+    <button onClick={clear}>Clear all items</button>
+
+    <table className={styles.cartTable}>
       <thead>
         <tr>
           <th>Product</th>

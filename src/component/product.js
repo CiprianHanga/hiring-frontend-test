@@ -5,7 +5,7 @@ import styles from './styles.css';
 
 const Product = ({add, id, title, image}) => (
   <div className={styles.product} onClick={() => add(id)}>
-    <img src={image} alt={title} className={styles.productImage}/>
+    <div style={{backgroundImage: 'url(' + image + ')'}} className={styles.productImage}></div>
     {title}
   </div>
 );

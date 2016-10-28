@@ -1,13 +1,69 @@
+.heading {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.cartTitleIcon {
+  position: relative;
+  top: 1px;
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+  fill: currentColor;
+}
+
+.cartTable {
+  width: 100%;
+  text-align: left;
+  table-layout: fixed;
+}
+
+.cartTable thead {
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.cartTable td,
+.cartTable th {
+  padding: 4px 5px;
+}
+
+.cartTable th {
+  font-weight: 600;
+}
+
+.cartTrashIcon {
+  position: relative;
+  top: 1px;
+  width: 14px;
+  height: 15px;
+  margin-left: 7px;
+  fill: currentColor;
+}
+
+.productsTitleIcon {
+  position: relative;
+  top: 2px;
+  width: 32px;
+  height: 26px;
+  margin-right: 8px;
+  fill: currentColor;
+}
+
 .product {
   display: inline-block;
+  text-align: center;
+  border: 1px solid #c0c0c0;
+  padding: 8px;
+  margin-right: 25px;
+  cursor: pointer;
 }
 
 .productImage {
   width: 100px;
+  height: 100px;
+  background-position: center center;
+  background-size: 100% auto;
+  background-size: cover;
   display: block;
-}
-
-.heading {
-  font-size: 32px;
-  font-weight: bold;
+  margin-bottom: 7px;
 }
