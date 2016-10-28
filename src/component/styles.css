@@ -1,0 +1,13 @@
+.product {
+  display: inline-block;
+}
+
+.productImage {
+  width: 100px;
+  display: block;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: bold;
+}
