@@ -55,7 +55,7 @@ const Cart = ({total, items}) => (
         </tr>
       </thead>
       <tbody>
-        {map((item) => <Item {...item}/>, items)}
+        {map((item) => <Item {...item} key={item.id} />, items)}
         <tr><td colSpan={3}/><td>TOTAL: {total}</td></tr>
       </tbody>
     </table>
