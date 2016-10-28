@@ -16,7 +16,7 @@ const formatMoney = (value) => (
 
 const Cart = ({clear, total, items}) => {
   const header = (
-    <Heading>
+    <Heading className={styles.cartTitle}>
       <Svg named='cart' className={styles.cartTitleIcon} />
       Cart
     </Heading>
@@ -25,7 +25,10 @@ const Cart = ({clear, total, items}) => {
   if (items.length === 0) {
     return (
       <div className={styles.cartContainer}>
-        {header}
+        <div className={styles.headingOuter}>
+          {header}
+        </div>
+
         Your cart is empty
       </div>
     );
@@ -33,9 +36,10 @@ const Cart = ({clear, total, items}) => {
 
   return (
     <div className={styles.cartContainer}>
-      {header}
-
-      <button onClick={clear}>Clear all items</button>
+      <div className={styles.headingOuter}>
+        {header}
+        <button onClick={clear}>Empty cart</button>
+      </div>
 
       <table className={styles.cartTable}>
         <thead>

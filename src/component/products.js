@@ -9,10 +9,12 @@ import Svg from './svg';
 
 export default () => (
   <div className={styles.productsContainer}>
-    <Heading>
-      <Svg named='cup' className={styles.productsTitleIcon} />
-      Products
-    </Heading>
+    <div className={styles.headingOuter}>
+      <Heading>
+        <Svg named='cup' className={styles.productsTitleIcon} />
+        Products
+      </Heading>
+    </div>
 
     {map((product) => <Product {...product} key={product.id}/>, products)}
   </div>
