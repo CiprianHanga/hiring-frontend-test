@@ -38,7 +38,10 @@ const Cart = ({clear, total, items}) => {
     <div className={styles.cartContainer}>
       <div className={styles.headingOuter}>
         {header}
-        <button onClick={clear} className={styles.clearCartButton}>Empty cart</button>
+        <button
+          onClick={clear}
+          className={styles.clearCartButton}
+        >Empty cart</button>
       </div>
 
       <table className={styles.cartTable}>
