@@ -4,20 +4,20 @@ import reduce from 'lodash/fp/reduce';
 import {connect} from 'react-redux';
 import styles from './styles.css';
 
-import {clear, setQuantity, removeItem, reduceOrRemoveItem} from '../action/cart';
+import {clear} from '../action/cart';
 import * as products from '../data/items';
 import Heading from './heading';
 import Item from './item';
-import SVG from './svg';
+import Svg from './svg';
 
-let formatMoney = (value) => (
+const formatMoney = (value) => (
   <span>${value.toFixed(2)}</span>
 );
 
 const Cart = ({clear, total, items}) => {
   const header = (
     <Heading>
-      <SVG named="cartIcon" className={styles.cartTitleIcon} />
+      <Svg named='cart' className={styles.cartTitleIcon} />
       Cart
     </Heading>
   );
@@ -28,8 +28,8 @@ const Cart = ({clear, total, items}) => {
         {header}
         Your cart is empty
       </div>
-    )
-  };
+    );
+  }
 
   return (
     <div>
@@ -46,6 +46,7 @@ const Cart = ({clear, total, items}) => {
             <th>Total</th>
           </tr>
         </thead>
+
         <tbody>
           {map((item) => <Item {...item} key={item.id} />, items)}
           <tr>

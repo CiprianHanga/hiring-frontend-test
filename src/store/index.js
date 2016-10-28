@@ -12,5 +12,7 @@ export default (initialState) => compose(
   applyMiddleware(
     thunkMiddleware,
   ),
-  devTools ? devToolsExtension() : identity,
+  devTools
+    ? devToolsExtension()
+    : identity,
 )(createStore)(reducer, initialState);

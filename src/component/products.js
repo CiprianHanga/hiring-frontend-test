@@ -5,12 +5,12 @@ import map from 'lodash/fp/map';
 import * as products from '../data/items';
 import Product from './product';
 import Heading from './heading';
-import SVG from './svg';
+import Svg from './svg';
 
 export default () => (
   <div>
     <Heading>
-      <SVG named="cupIcon" className={styles.productsTitleIcon} />
+      <Svg named='cup' className={styles.productsTitleIcon} />
       Products
     </Heading>
 

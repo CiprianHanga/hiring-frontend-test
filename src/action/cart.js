@@ -8,23 +8,30 @@ export const clear = createAction(CLEAR_ITEMS);
 
 export function add(itemID) {
   return function(dispatch, getState) {
-    let existingItem = getState().cart.items.find((item) => { return item.id === itemID });
+    const cartItems = getState().cart.items;
+    const existingItem = cartItems.find((item) => item.id === itemID);
 
     if (!existingItem) return dispatch(addItem(itemID));
 
-    let newQuantity = existingItem.quantity + 1;
-    return dispatch(setQuantity({ id: itemID, quantity: newQuantity }));
+    const newQuantity = existingItem.quantity + 1;
+    return dispatch(setQuantity({
+      id: itemID,
+      quantity: newQuantity,
+    }));
   };
-};
+}
 
-export function decreaseOrRemoveItem(itemID) {
+export function reduceOrRemoveItem(itemID) {
   return function(dispatch, getState) {
-    let cartItem = getState().cart.items.find((item) => { return item.id === itemID });
-    let itemQuantity = cartItem.quantity;
+    const cartItem = getState().cart.items.find((item) => item.id === itemID);
+    const itemQuantity = cartItem.quantity;
 
     if (itemQuantity === 1) return dispatch(removeItem(itemID));
 
-    let newQuantity = itemQuantity - 1;
-    return dispatch(setQuantity({ id: itemID, quantity: newQuantity }));
+    const newQuantity = itemQuantity - 1;
+    return dispatch(setQuantity({
+      id: itemID,
+      quantity: newQuantity,
+    }));
   };
 }
