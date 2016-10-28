@@ -36,7 +36,7 @@ const Item = connect(
   );
 });
 
-const Cart = ({total, items}) => (
+const Cart = ({clear, total, items}) => (
   <div>
     <Heading>
       <ReactSVG path={'icon-cart.svg'} className={styles.cartTitleIcon} />
@@ -71,4 +71,4 @@ export default connect((state) => {
       state.cart.items
     ),
   };
-})(Cart);
+}, {clear})(Cart);
