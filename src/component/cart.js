@@ -24,7 +24,7 @@ const Cart = ({clear, total, items}) => {
 
   if (items.length === 0) {
     return (
-      <div>
+      <div className={styles.cartContainer}>
         {header}
         Your cart is empty
       </div>
@@ -32,7 +32,7 @@ const Cart = ({clear, total, items}) => {
   }
 
   return (
-    <div>
+    <div className={styles.cartContainer}>
       {header}
 
       <button onClick={clear}>Clear all items</button>

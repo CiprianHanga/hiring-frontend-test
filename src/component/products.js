@@ -8,7 +8,7 @@ import Heading from './heading';
 import Svg from './svg';
 
 export default () => (
-  <div>
+  <div className={styles.productsContainer}>
     <Heading>
       <Svg named='cup' className={styles.productsTitleIcon} />
       Products
